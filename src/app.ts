@@ -17,7 +17,7 @@ app.get('/', (req: Request, res: Response) => {
     });
 });
 
-app.use('/api', bookRouter)
+app.use('/api/books', bookRouter)
 
 // global err handler, handle not found route
 export default app;
