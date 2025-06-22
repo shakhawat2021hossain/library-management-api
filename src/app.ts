@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
+import { bookRouter } from './app/controllers/book.controller';
 
 const app: Application = express();
 
@@ -15,6 +16,8 @@ app.get('/', (req: Request, res: Response) => {
         message: "Welcome to the Library Management API"
     });
 });
+
+app.use('/api', bookRouter)
 
 // global err handler, handle not found route
 export default app;

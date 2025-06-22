@@ -1,5 +1,5 @@
 import mongoose, { model } from "mongoose";
-import { IBook } from "../interfaces/book.interfaces";
+import { IBook } from "../interfaces/book.interface";
 
 const bookSchema = new mongoose.Schema<IBook>({
     title: {
@@ -33,6 +33,9 @@ const bookSchema = new mongoose.Schema<IBook>({
         type: Boolean,
         default: true,
     }
-})
+},
+    { timestamps: true }
 
-export const Book =  model("Book", bookSchema)
+)
+
+export const Book = model("Book", bookSchema)

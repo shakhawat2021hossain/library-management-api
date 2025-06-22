@@ -5,16 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const book_controller_1 = require("./app/controllers/book.controller");
 const app = (0, express_1.default)();
 // Middleware
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-// Root route (optional)
+// routes
 app.get('/', (req, res) => {
     res.json({
         success: true,
         message: "Welcome to the Library Management API"
     });
 });
+app.use('/api', book_controller_1.bookRouter);
 // global err handler, handle not found route
 exports.default = app;

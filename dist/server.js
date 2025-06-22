@@ -18,7 +18,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 let server;
 const port = 3000;
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
+const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(process.env.MONGO_URI);
         console.log('✅ Connected to MongoDB');
@@ -30,4 +30,4 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         console.error('❌ Failed to start the server:', error);
     }
 });
-main();
+connectDB();
