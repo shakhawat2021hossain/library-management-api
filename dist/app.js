@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const book_controller_1 = require("./app/controllers/book.controller");
+const borrow_controller_1 = require("./app/controllers/borrow.controller");
 const app = (0, express_1.default)();
 // Middleware
 app.use((0, cors_1.default)());
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
         message: "Welcome to the Library Management API"
     });
 });
-app.use('/api', book_controller_1.bookRouter);
+app.use('/api/books', book_controller_1.bookRouter);
+app.use("/api/borrow", borrow_controller_1.borrowRouter);
 // global err handler, handle not found route
 exports.default = app;

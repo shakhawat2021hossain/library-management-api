@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import { bookRouter } from './app/controllers/book.controller';
+import { borrowRouter } from './app/controllers/borrow.controller';
 
 const app: Application = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/books', bookRouter)
+app.use("/api/borrow", borrowRouter)
 
 // global err handler, handle not found route
 export default app;
